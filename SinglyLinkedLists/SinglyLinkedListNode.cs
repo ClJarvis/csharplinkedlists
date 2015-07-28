@@ -16,18 +16,21 @@ namespace SinglyLinkedLists
         public SinglyLinkedListNode Next
         {
             get { return next; }
-            set {
-                if (value == this) {
+            set
+            {
+                if (value == this)
+                {
                     throw new ArgumentException();
                 }
-                this.next = value; }
+                this.next = value;
+            }
         }
 
-        private string value; //same as this.value
-        //Value is a property!! FIx the getter!
-        public string Value 
+        private string value; // same as this.value
+        // Value is a property!! Fix the getter!
+        public string Value
         {
-            get { return value;  }
+            get { return value; }
         }
 
         public static bool operator <(SinglyLinkedListNode node1, SinglyLinkedListNode node2)
@@ -44,12 +47,10 @@ namespace SinglyLinkedLists
 
         public SinglyLinkedListNode(string input)
         {
-            // throw new NotImplementedException();
             this.value = input;
 
-            // UNdeclared data 
+            // Undeclared data members default to null, but...
             this.next = null;
-
 
             // Used by the visualizer:
             allNodes.Add(this);
@@ -63,25 +64,33 @@ namespace SinglyLinkedLists
 
         public bool IsLast()
         {
-            /* this makes the test pass if (this.next == null)
-             {
-                 return true;
-             } else
-             {
-                 return false;
-
-     */
-        /* refactor 1 no else satement 
-        if (this.next == null)
-        {
-            return true;
+            /* this makes the test pass
+            if (this.next == null)
+            {
+                return true;
+            } else
+            {
+                return false;
             }
-            return false
-        }/* REfactor 2 */
-        return this.next == null;
+            */
+            /* Refactor 1: no else statement
+            if (this.next == null)
+            {
+                return true;
+            } 
+            return false;
+            */
+
+            /* Refactor 2 */
+            return this.next == null;
+
+        }
+
+
         public override string ToString()
         {
             return this.value;
         }
+
     }
 }
