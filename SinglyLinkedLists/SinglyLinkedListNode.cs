@@ -15,14 +15,19 @@ namespace SinglyLinkedLists
         private SinglyLinkedListNode next;
         public SinglyLinkedListNode Next
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get { return next; }
+            set {
+                if (value == this) {
+                    throw new ArgumentException();
+                }
+                this.next = value; }
         }
 
-        private string value;
+        private string value; //same as this.value
+        //Value is a property!! FIx the getter!
         public string Value 
         {
-            get { throw new NotImplementedException(); }
+            get { return value;  }
         }
 
         public static bool operator <(SinglyLinkedListNode node1, SinglyLinkedListNode node2)
@@ -37,9 +42,14 @@ namespace SinglyLinkedLists
             return node1.CompareTo(node2) > 0;
         }
 
-        public SinglyLinkedListNode(string value)
+        public SinglyLinkedListNode(string input)
         {
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
+            this.value = input;
+
+            // UNdeclared data 
+            this.next = null;
+
 
             // Used by the visualizer:
             allNodes.Add(this);
@@ -53,7 +63,25 @@ namespace SinglyLinkedLists
 
         public bool IsLast()
         {
-            throw new NotImplementedException();
+            /* this makes the test pass if (this.next == null)
+             {
+                 return true;
+             } else
+             {
+                 return false;
+
+     */
+        /* refactor 1 no else satement 
+        if (this.next == null)
+        {
+            return true;
+            }
+            return false
+        }/* REfactor 2 */
+        return this.next == null;
+        public override string ToString()
+        {
+            return this.value;
         }
     }
 }
