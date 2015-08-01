@@ -7,6 +7,7 @@ namespace SinglyLinkedLists
 {
     public class SinglyLinkedList
     {
+        private SinglyLinkedListNode first_node; 
         public SinglyLinkedList()
         {
             // NOTE: This constructor isn't necessary, once you've implemented the constructor below.
@@ -37,24 +38,46 @@ namespace SinglyLinkedLists
 
         public void AddLast(string value)
         {
-            throw new NotImplementedException();
+            if (this.First() == null)
+            { 
+            first_node = new SinglyLinkedListNode(value);
         }
-
+    }
         // NOTE: There is more than one way to accomplish this.  One is O(n).  The other is O(1).
         public int Count()
         {
-            throw new NotImplementedException();
+        //if the list is empty
+        // this.Count() == 0
+        if  (this.First() == null)
+            {
+                return 0;
+            } else
+            {
+                return 0; //place holder for now
+            }
+                    //provide a scecond Implementation for homework
         }
 
         public string ElementAt(int index)
         {
-            throw new NotImplementedException();
+           if (this.First() == null)
+            {
+                throw new ArgumentOutOfRangeException();
+            } else
+            {
+                return ""; //placeholder
+            }
         }
 
         public string First()
         {
-            throw new NotImplementedException();
+            if (this.first_node == null)
+            {
+                return null;
+            } else
+            return this.first_node.Value;
         }
+        // return this.first_node ? null : this.first_node.Value;
 
         public int IndexOf(string value)
         {
