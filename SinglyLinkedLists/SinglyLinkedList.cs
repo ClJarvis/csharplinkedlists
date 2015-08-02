@@ -41,7 +41,9 @@ namespace SinglyLinkedLists
             if (this.First() == null)
             { 
             first_node = new SinglyLinkedListNode(value);
-        }
+            }
+            else { 
+            }
     }
         // NOTE: There is more than one way to accomplish this.  One is O(n).  The other is O(1).
         public int Count()
@@ -74,11 +76,13 @@ namespace SinglyLinkedLists
             if (this.first_node == null)
             {
                 return null;
-            } else
-            return this.first_node.Value;
+            }
+            else
+            {
+                return this.first_node.Value;
+            }
+            // return this.first_node ? null : this.first_node.Value;
         }
-        // return this.first_node ? null : this.first_node.Value;
-
         public int IndexOf(string value)
         {
             throw new NotImplementedException();
