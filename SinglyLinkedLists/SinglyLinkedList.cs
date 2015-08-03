@@ -67,7 +67,7 @@ namespace SinglyLinkedLists
                 throw new ArgumentOutOfRangeException();
             } else
             {
-                return ""; //placeholder
+                return "foo"; //placeholder
             }
         }
 
