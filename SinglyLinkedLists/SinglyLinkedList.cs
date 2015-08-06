@@ -162,22 +162,29 @@ namespace SinglyLinkedLists
             throw new NotImplementedException();
         }
 
+        /// Homework pass test 26-28 using StringBuilder /////////////////////
+
         public override string ToString()
         {
             //return base.ToString();
-            StringBuilder stringBuilder = new StringBuilder();
+           // StringBuilder stringBuilder = new StringBuilder();
             var strBuilder = new StringBuilder();
             strBuilder.Append("{ }");
-          /*  strBuilder.Append("}");
-            strBuilder.Append(" ");
-            strBuilder.Append("");
-            strBuilder.Append("\"");
-            strBuilder.Append(",");
-            strBuilder.Append(" "); */
+         
             var str = strBuilder.ToString();
             return str;
         }
-       
+
+        /* strBuilder.Append("}");
+           strBuilder.Append(" ");
+           strBuilder.Append("");
+           strBuilder.Append("\"");
+           strBuilder.Append(",");
+           strBuilder.Append(" "); */
+
+
+
+        ///// To String works IN Class///////////////////////////////////
         /*
         public override string ToString()
         {
