@@ -164,6 +164,23 @@ namespace SinglyLinkedLists
 
         public override string ToString()
         {
+            //return base.ToString();
+            StringBuilder stringBuilder = new StringBuilder();
+            var strBuilder = new StringBuilder();
+            strBuilder.Append("{ }");
+          /*  strBuilder.Append("}");
+            strBuilder.Append(" ");
+            strBuilder.Append("");
+            strBuilder.Append("\"");
+            strBuilder.Append(",");
+            strBuilder.Append(" "); */
+            var str = strBuilder.ToString();
+            return str;
+        }
+       
+        /*
+        public override string ToString()
+        {
             var opening = "{";
             var ending = "}";
             var space = " ";
@@ -182,11 +199,10 @@ namespace SinglyLinkedLists
                     }
                 output += quote + this.Last() + quote;
             }
-    
             output += space;
             output += ending;
             return output;
-
         }
+        */
     }
 }
