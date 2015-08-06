@@ -125,11 +125,11 @@ namespace SinglyLinkedLists
         public string Last()
         {
 
-            //step 1 Do I need to lop???
+            //step 1 Do I need to loop???
             //Step 2 If Yes do I alredy have the code an example of how? MOST IMPORTANT if dont undertsand code but knows what it does.
             //step 3 How can i modify the previous examples
             //4 write what I think works
-            //5 rebule/ re run test
+            //5 rebuld/ rerun test
             //6 rinse and repeat
 
             var node = this.first_node;
@@ -160,6 +160,33 @@ namespace SinglyLinkedLists
         public string[] ToArray()
         {
             throw new NotImplementedException();
+        }
+
+        public override string ToString()
+        {
+            var opening = "{";
+            var ending = "}";
+            var space = " ";
+            var output = "";
+            var quote = "\"";
+            var comma = "," + space;
+            var node = this.first_node;
+            output += opening;
+            if (this.Count() >= 1)
+            {
+                output += space;
+                    while (!node.IsLast())
+                    {
+                        output += quote + node.Value + quote + comma;
+                        node = node.Next;
+                    }
+                output += quote + this.Last() + quote;
+            }
+    
+            output += space;
+            output += ending;
+            return output;
+
         }
     }
 }
