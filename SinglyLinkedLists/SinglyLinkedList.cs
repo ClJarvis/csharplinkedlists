@@ -166,13 +166,21 @@ namespace SinglyLinkedLists
 
         public override string ToString()
         {
-            //return base.ToString();
-           // StringBuilder stringBuilder = new StringBuilder();
+
             var strBuilder = new StringBuilder();
-            strBuilder.Append("{ }");
-         
-            var str = strBuilder.ToString();
-            return str;
+            strBuilder.Append("{");
+            strBuilder.Append(" ");
+            var node = this.first_node;
+            if (this.Count() > 0)
+            {
+                strBuilder.Append("\"");
+                strBuilder.Append("foo"); 
+                strBuilder.Append("\"");
+                strBuilder.Append(" ");
+            }
+            strBuilder.Append("}");
+            return strBuilder.ToString();
+
         }
 
         /* strBuilder.Append("}");
