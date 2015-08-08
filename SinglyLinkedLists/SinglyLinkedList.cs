@@ -7,7 +7,11 @@ namespace SinglyLinkedLists
 {
     public class SinglyLinkedList
     {
-        private SinglyLinkedListNode first_node; 
+        private IEnumerable<object> collection;
+        private SinglyLinkedListNode first_node;
+
+      
+
         public SinglyLinkedList()
         {
             // NOTE: This constructor isn't necessary, once you've implemented the constructor below.
@@ -159,29 +163,86 @@ namespace SinglyLinkedLists
 
         public string[] ToArray()
         {
-            throw new NotImplementedException();
+          Array  Array = new Array [0];
+            var node = this.first_node;
+            if (node == null) ;
+                return null;
         }
 
         /// Homework pass test 26-28 using StringBuilder /////////////////////
 
         public override string ToString()
         {
-
             var strBuilder = new StringBuilder();
-            strBuilder.Append("{");
-            strBuilder.Append(" ");
+            //  { "{", " ", "\"", ",", "foo" };
+            // strBuilder.Append("{");
+           // strBuilder.Append(" ");
+            var opening = "{";
+            var ending = "}";
+            var space = " ";
+            var output = "";  //EXCESS ?
+            var quote = "\"";
+            var comma = "," + space;
             var node = this.first_node;
-            if (this.Count() > 0)
+            // output += opening;
+            strBuilder.Append(opening); //.Append(space).Append(ending);
+            if (this.Count() >= 1)
             {
-                strBuilder.Append("\"");
-                strBuilder.Append("foo"); 
-                strBuilder.Append("\"");
-                strBuilder.Append(" ");
+               strBuilder.Append(space);
+                while (!node.IsLast()) //;
+                {
+                    strBuilder.Append(quote).Append(node.Value).Append(quote).Append(comma);
+                    node = node.Next;
+                }
+                strBuilder.Append(quote).Append(this.Last()).Append(quote);
             }
-            strBuilder.Append("}");
+            strBuilder.Append(space);
+            strBuilder.Append(ending);
+
             return strBuilder.ToString();
 
         }
+
+
+
+
+            /*     foreach (row in strBuilder)
+                {
+                    str.Append(row.strBuilder);
+                }
+
+                string finalName = sb.ToString();
+
+               int count = 0;
+                    foreach (var item in collection)
+                    {
+                        count += 1;
+                        return strBuilder.ToString();
+                    } */
+
+            /* strBuilder.Append("\"");
+             strBuilder.Append("foo"); 
+             strBuilder.Append("\"");
+             strBuilder.Append(" ");
+             strBuilder.Append("\"");
+             strBuilder.Append("bar");
+             strBuilder.Append("\"");
+             strBuilder.Append(" ");
+             strBuilder.Append("\"");
+             strBuilder.Append("grille");
+             strBuilder.Append("\"");
+             strBuilder.Append(" "); */
+        }
+   
+    }
+
+
+        /*
+        foreach (var item in collection)
+                {
+                return strBuilder.ToString();
+            }
+            */
 
         /* strBuilder.Append("}");
            strBuilder.Append(" ");
@@ -219,5 +280,5 @@ namespace SinglyLinkedLists
             return output;
         }
         */
-    }
-}
+    //}
+//}
