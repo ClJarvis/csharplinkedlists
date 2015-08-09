@@ -10,7 +10,7 @@ namespace SinglyLinkedLists
         private IEnumerable<object> collection;
         private SinglyLinkedListNode first_node;
 
-      
+
 
         public SinglyLinkedList()
         {
@@ -43,8 +43,8 @@ namespace SinglyLinkedLists
         public void AddLast(string value)
         {
             if (this.First() == null)
-            { 
-            first_node = new SinglyLinkedListNode(value);
+            {
+                first_node = new SinglyLinkedListNode(value);
             }
             else {
                 var node = this.first_node;
@@ -54,13 +54,13 @@ namespace SinglyLinkedLists
                 }
                 node.Next = new SinglyLinkedListNode(value);
             }
-    }
+        }
         // NOTE: There is more than one way to accomplish this.  One is O(n).  The other is O(1).
         public int Count()
         {
-        //if the list is empty
-        // this.Count() == 0
-        if  (this.First() == null)
+            //if the list is empty
+            // this.Count() == 0
+            if (this.First() == null)
             {
                 return 0;
             } else
@@ -68,14 +68,14 @@ namespace SinglyLinkedLists
                 int length = 1;
                 var node = this.first_node;
                 //Complexity is O(n)
-                while(node.Next != null)
+                while (node.Next != null)
                 {
                     length++;
                     node = node.Next;
                 }
-                return length; 
+                return length;
             }
-                    //provide a scecond Implementation for homework
+            //provide a scecond Implementation for homework
         }
 
         public string ElementAt(int index)
@@ -88,7 +88,7 @@ namespace SinglyLinkedLists
 
                 var node = this.first_node;
 
-                for (var i = 0; i <=index; i++)
+                for (var i = 0; i <= index; i++)
                 {
                     if (i == index)
                     {
@@ -162,123 +162,122 @@ namespace SinglyLinkedLists
         }
 
         public string[] ToArray()
+            /*
+            public void ToArrayOnEmptyList()
         {
-          Array  Array = new Array [0];
-            var node = this.first_node;
-            if (node == null) ;
-                return null;
+            SinglyLinkedList list = new SinglyLinkedList();
+            string[] expected = new string[] { };
+            CollectionAssert.AreEqual(expected, list.ToArray());
+        }
+        */
+        {
+
+            var empty_array = new string[] { };
+            return empty_array;
         }
 
-        /// Homework pass test 26-28 using StringBuilder /////////////////////
+        ////////////////////////////////////// Homework pass test 26-28 using StringBuilder ////////////////
+        ///////////////////////////////////// string Builder version 2 /////////////////////////////////////
+
 
         public override string ToString()
         {
             var strBuilder = new StringBuilder();
-            //  { "{", " ", "\"", ",", "foo" };
-            // strBuilder.Append("{");
-           // strBuilder.Append(" ");
             var opening = "{";
             var ending = "}";
             var space = " ";
-            var output = "";  //EXCESS ?
             var quote = "\"";
-            var comma = "," + space;
+            var comma = ",";
             var node = this.first_node;
-            // output += opening;
-            strBuilder.Append(opening); //.Append(space).Append(ending);
+
+            strBuilder.Append(opening).Append(space);
             if (this.Count() >= 1)
             {
-               strBuilder.Append(space);
+                
                 while (!node.IsLast()) //;
                 {
-                    strBuilder.Append(quote).Append(node.Value).Append(quote).Append(comma);
+                    strBuilder.Append(quote).Append(node.Value).Append(quote).Append(comma).Append(space);
                     node = node.Next;
                 }
-                strBuilder.Append(quote).Append(this.Last()).Append(quote);
+                strBuilder.Append(quote).Append(node.Value).Append(quote).Append(space);
             }
-            strBuilder.Append(space);
+
             strBuilder.Append(ending);
-
+            var str = strBuilder.ToString();
             return strBuilder.ToString();
-
         }
-
-
-
-
-            /*     foreach (row in strBuilder)
-                {
-                    str.Append(row.strBuilder);
-                }
-
-                string finalName = sb.ToString();
-
-               int count = 0;
-                    foreach (var item in collection)
-                    {
-                        count += 1;
-                        return strBuilder.ToString();
-                    } */
-
-            /* strBuilder.Append("\"");
-             strBuilder.Append("foo"); 
-             strBuilder.Append("\"");
-             strBuilder.Append(" ");
-             strBuilder.Append("\"");
-             strBuilder.Append("bar");
-             strBuilder.Append("\"");
-             strBuilder.Append(" ");
-             strBuilder.Append("\"");
-             strBuilder.Append("grille");
-             strBuilder.Append("\"");
-             strBuilder.Append(" "); */
-        }
-   
     }
+}
 
-
-        /*
-        foreach (var item in collection)
-                {
-                return strBuilder.ToString();
-            }
-            */
-
-        /* strBuilder.Append("}");
-           strBuilder.Append(" ");
-           strBuilder.Append("");
-           strBuilder.Append("\"");
-           strBuilder.Append(",");
-           strBuilder.Append(" "); */
+/* strBuilder.Append("}");
+   strBuilder.Append(" ");
+   strBuilder.Append("");
+   strBuilder.Append("\"");
+   strBuilder.Append(",");
+   strBuilder.Append(" "); */
 
 
 
-        ///// To String works IN Class///////////////////////////////////
-        /*
-        public override string ToString()
-        {
-            var opening = "{";
-            var ending = "}";
-            var space = " ";
-            var output = "";
-            var quote = "\"";
-            var comma = "," + space;
-            var node = this.first_node;
-            output += opening;
-            if (this.Count() >= 1)
+///// To String works IN Class///////////////////////////////////
+/*
+public override string ToString()
+{
+    var opening = "{";
+    var ending = "}";
+    var space = " ";
+    var output = "";
+    var quote = "\"";
+    var comma = "," + space;
+    var node = this.first_node;
+    output += opening;
+    if (this.Count() >= 1)
+    {
+        output += space;
+            while (!node.IsLast())
             {
-                output += space;
-                    while (!node.IsLast())
-                    {
-                        output += quote + node.Value + quote + comma;
-                        node = node.Next;
-                    }
-                output += quote + this.Last() + quote;
+                output += quote + node.Value + quote + comma;
+                node = node.Next;
             }
-            output += space;
-            output += ending;
-            return output;
-        }
-        */
-    //}
+        output += quote + this.Last() + quote;
+    }
+    output += space;
+    output += ending;
+    return output;
+}
+*/
 //}
+//}
+///////////////////////////////////// string Builder version 1 /////////////////////////////////////
+/*     public override string ToString()
+         {
+             var strBuilder = new StringBuilder();
+             //  { "{", " ", "\"", ",", "foo" };
+             // strBuilder.Append("{");
+            // strBuilder.Append(" ");
+             var opening = "{";
+             var ending = "}";
+             var space = " ";
+             var output = "";  //EXCESS ?
+             var quote = "\"";
+             var comma = "," + space;
+             var node = this.first_node;
+             // output += opening;
+             strBuilder.Append(opening); //.Append(space).Append(ending);
+             if (this.Count() >= 1)
+             {
+                strBuilder.Append(space);
+                 while (!node.IsLast()) //;
+                 {
+                     strBuilder.Append(quote).Append(node.Value).Append(quote).Append(comma);
+                     node = node.Next;
+                 }
+                 strBuilder.Append(quote).Append(this.Last()).Append(quote);
+             }
+             strBuilder.Append(space);
+             strBuilder.Append(ending);
+
+             return strBuilder.ToString();
+
+         }
+
+         */
