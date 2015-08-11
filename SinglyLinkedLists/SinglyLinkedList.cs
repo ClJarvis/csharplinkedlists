@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -162,20 +163,16 @@ namespace SinglyLinkedLists
         }
 
         public string[] ToArray()
-            /*
-            public void ToArrayOnEmptyList()
         {
-            SinglyLinkedList list = new SinglyLinkedList();
-            string[] expected = new string[] { };
-            CollectionAssert.AreEqual(expected, list.ToArray());
-        }
-        */
-        {
+          var  array = new string[this.Count()];
 
-            var empty_array = new string[] { };
-            return empty_array;
+          for (var i = 0; i <array.Length; i++)
+          {
+              array[i] = this.ElementAt(i);
+          }
+          return array;
+  
         }
-
         ////////////////////////////////////// Homework pass test 26-28 using StringBuilder ////////////////
         ///////////////////////////////////// string Builder version 2 /////////////////////////////////////
 
@@ -207,7 +204,9 @@ namespace SinglyLinkedLists
             return strBuilder.ToString();
         }
     }
+   
 }
+
 
 /* strBuilder.Append("}");
    strBuilder.Append(" ");
@@ -247,6 +246,11 @@ public override string ToString()
 */
 //}
 //}
+
+//  return array.ToArray<string>();
+
+
+
 ///////////////////////////////////// string Builder version 1 /////////////////////////////////////
 /*     public override string ToString()
          {
@@ -279,5 +283,7 @@ public override string ToString()
              return strBuilder.ToString();
 
          }
+
+
 
          */
