@@ -35,11 +35,24 @@ namespace SinglyLinkedLists
         {
             throw new NotImplementedException();
         }
+     
 
-        public void AddFirst(string value)
-        {
-            throw new NotImplementedException();
+        public void AddFirst(string value) ////////////////Advanced linked list ///////////////
+        { ///   "grille", "foo", "bar"
+            if (this.First() == null)
+            {
+                first_node = new SinglyLinkedListNode(value);
+            }
+            else {
+                
+                var newFirstNode = new SinglyLinkedListNode(value); //this.first_node;
+                                                                   
+                newFirstNode.Next = this.first_node;
+                first_node = newFirstNode; 
+                }  
+            
         }
+       
 
         public void AddLast(string value)
         {
