@@ -33,19 +33,53 @@ namespace SinglyLinkedLists
 
         public void AddAfter(string existingValue, string value)
         {
-            throw new NotImplementedException();
+            var newNode = new SinglyLinkedListNode(value);
+            var node = first_node;
+            while (node != null)
+            {
+                
+
+                if (node.Value == existingValue)
+                {
+                    if (node.IsLast())
+                    {
+                        node.Next = newNode;
+                        return;
+                    }
+                    var capturePointer = node.Next;
+                    node.Next = newNode;
+                   
+                    newNode.Next = capturePointer;
+                    return;
+                    
+                }
+                /*if (node.Next.IsLast())
+                {
+                    this.AddLast(value);
+                }
+                
+                else
+                {
+                    //node = node.Next;
+                    
+                } */
+                node = node.Next;
+               
+            }
+                throw new ArgumentException(); 
+            //  this.AddLast(value);
+
         }
-     
+
 
         public void AddFirst(string value) ////////////////Advanced linked list ///////////////
-        { ///   "grille", "foo", "bar"
+        {
             if (this.First() == null)
             {
                 first_node = new SinglyLinkedListNode(value);
             }
-            else {
-                
-                var newFirstNode = new SinglyLinkedListNode(value); //this.first_node;
+            else {      
+                var newFirstNode = new SinglyLinkedListNode(value); 
                                                                    
                 newFirstNode.Next = this.first_node;
                 first_node = newFirstNode; 
@@ -69,6 +103,25 @@ namespace SinglyLinkedLists
                 node.Next = new SinglyLinkedListNode(value);
             }
         }
+
+        public void Last(string value)
+        {
+            if (this.First() == null)
+            {
+                first_node = new SinglyLinkedListNode(value);
+            }
+            else
+            {
+                var node = this.first_node;
+                while (!node.IsLast()) //another way to do this.
+                {
+                    node = node.Next;
+                }
+                node.Next = new SinglyLinkedListNode(value);
+            }
+        }
+
+
         // NOTE: There is more than one way to accomplish this.  One is O(n).  The other is O(1).
         public int Count()
         {
