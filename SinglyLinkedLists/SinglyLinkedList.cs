@@ -21,14 +21,27 @@ namespace SinglyLinkedLists
         // READ: http://msdn.microsoft.com/en-us/library/aa691335(v=vs.71).aspx
         public SinglyLinkedList(params object[] values)
         {
+            //test 6
+           // int i = 0;
+           // AddLast(values[i].ToString());
+            for (int i = 0; i < values.Length; i++)
+            {
+                AddLast(values[i].ToString());
+            }
+           
+
+        }
+
+        private void publicSinglyLinkedList()
+        {
             throw new NotImplementedException();
         }
 
         // READ: http://msdn.microsoft.com/en-us/library/6x16t2tx.aspx
         public string this[int i]
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get {return  this[i]; }
+            set {this[i] = value; }
         }
 
         public void AddAfter(string existingValue, string value)
@@ -37,8 +50,6 @@ namespace SinglyLinkedLists
             var node = first_node;
             while (node != null)
             {
-                
-
                 if (node.Value == existingValue)
                 {
                     if (node.IsLast())
@@ -50,25 +61,12 @@ namespace SinglyLinkedLists
                     node.Next = newNode;
                    
                     newNode.Next = capturePointer;
-                    return;
-                    
+                    return;     
                 }
-                /*if (node.Next.IsLast())
-                {
-                    this.AddLast(value);
-                }
-                
-                else
-                {
-                    //node = node.Next;
-                    
-                } */
                 node = node.Next;
-               
             }
                 throw new ArgumentException(); 
-            //  this.AddLast(value);
-
+          
         }
 
 
