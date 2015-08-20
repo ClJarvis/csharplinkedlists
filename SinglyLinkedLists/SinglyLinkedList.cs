@@ -40,9 +40,30 @@ namespace SinglyLinkedLists
         // READ: http://msdn.microsoft.com/en-us/library/6x16t2tx.aspx
         public string this[int i]
         {
-            get {return  this[i]; }
-            set {this[i] = value; }
-        }
+            get
+            {  return this.ElementAt(i);
+            }
+            set {
+                var copy_of_list = new SinglyLinkedList();
+                for (var k = 0; k < this.Count(); k++)
+                {
+                    if (k == i)
+                            {
+                                copy_of_list.AddLast(value);
+                            }
+                            else
+                            {
+                                copy_of_list.AddLast(this.ElementAt(k));
+                            }
+                        }
+
+                        first_node = new SinglyLinkedListNode(copy_of_list.First());
+                        for (var Y = 1; Y < copy_of_list.Count(); Y++)
+                        {
+                            this.AddLast(copy_of_list.ElementAt(Y));
+                        }
+                    }
+                }
 
         public void AddAfter(string existingValue, string value)
         {
