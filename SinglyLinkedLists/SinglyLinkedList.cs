@@ -199,10 +199,23 @@ namespace SinglyLinkedLists
             }
             // return this.first_node ? null : this.first_node.Value;
         }
+
         public int IndexOf(string value)
+        
         {
-            throw new NotImplementedException();
+            var node = this.first_node;
+            for (var i = 0; i < this.Count(); i++);
+            if (this.Count() == 0)
+                return 0;
+            {
+                return 0;
+               /* {
+                    node = node.Next;
+                } */
+            }
         }
+
+     
 
         public bool IsSorted()
         {
@@ -287,6 +300,11 @@ namespace SinglyLinkedLists
             strBuilder.Append(ending);
             var str = strBuilder.ToString();
             return strBuilder.ToString();
+        }
+
+        public static implicit operator string (SinglyLinkedList v)
+        {
+            throw new NotImplementedException();
         }
     }
    
