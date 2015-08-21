@@ -22,13 +22,13 @@ namespace SinglyLinkedLists
         public SinglyLinkedList(params object[] values)
         {
             //test 6
-           // int i = 0;
-           // AddLast(values[i].ToString());
+            // int i = 0;
+            // AddLast(values[i].ToString());
             for (int i = 0; i < values.Length; i++)
             {
                 AddLast(values[i].ToString());
             }
-           
+
 
         }
 
@@ -41,29 +41,31 @@ namespace SinglyLinkedLists
         public string this[int i]
         {
             get
-            {  return this.ElementAt(i);
+            {
+                return this.ElementAt(i);
             }
-            set {
+            set
+            {
                 var copy_of_list = new SinglyLinkedList();
                 for (var k = 0; k < this.Count(); k++)
                 {
                     if (k == i)
-                            {
-                                copy_of_list.AddLast(value);
-                            }
-                            else
-                            {
-                                copy_of_list.AddLast(this.ElementAt(k));
-                            }
-                        }
-
-                        first_node = new SinglyLinkedListNode(copy_of_list.First());
-                        for (var Y = 1; Y < copy_of_list.Count(); Y++)
-                        {
-                            this.AddLast(copy_of_list.ElementAt(Y));
-                        }
+                    {
+                        copy_of_list.AddLast(value);
+                    }
+                    else
+                    {
+                        copy_of_list.AddLast(this.ElementAt(k));
                     }
                 }
+
+                first_node = new SinglyLinkedListNode(copy_of_list.First());
+                for (var Y = 1; Y < copy_of_list.Count(); Y++)
+                {
+                    this.AddLast(copy_of_list.ElementAt(Y));
+                }
+            }
+        }
 
         public void AddAfter(string existingValue, string value)
         {
@@ -80,14 +82,14 @@ namespace SinglyLinkedLists
                     }
                     var capturePointer = node.Next;
                     node.Next = newNode;
-                   
+
                     newNode.Next = capturePointer;
-                    return;     
+                    return;
                 }
                 node = node.Next;
             }
-                throw new ArgumentException(); 
-          
+            throw new ArgumentException();
+
         }
 
 
@@ -97,15 +99,16 @@ namespace SinglyLinkedLists
             {
                 first_node = new SinglyLinkedListNode(value);
             }
-            else {      
-                var newFirstNode = new SinglyLinkedListNode(value); 
-                                                                   
+            else
+            {
+                var newFirstNode = new SinglyLinkedListNode(value);
+
                 newFirstNode.Next = this.first_node;
-                first_node = newFirstNode; 
-                }  
-            
+                first_node = newFirstNode;
+            }
+
         }
-       
+
 
         public void AddLast(string value)
         {
@@ -113,7 +116,8 @@ namespace SinglyLinkedLists
             {
                 first_node = new SinglyLinkedListNode(value);
             }
-            else {
+            else
+            {
                 var node = this.first_node;
                 while (!node.IsLast()) //another way to do this.
                 {
@@ -149,7 +153,8 @@ namespace SinglyLinkedLists
             if (this.First() == null)
             {
                 return 0;
-            } else
+            }
+            else
             {
                 int length = 1;
                 var node = this.first_node;
@@ -169,7 +174,8 @@ namespace SinglyLinkedLists
             if (this.First() == null)
             {
                 throw new ArgumentOutOfRangeException();
-            } else
+            }
+            else
             {
 
                 var node = this.first_node;
@@ -201,32 +207,36 @@ namespace SinglyLinkedLists
         }
 
         public int IndexOf(string value)
-        
+
         {
             var node = this.first_node;
-           
+
             if (this.Count() > 0)
             {
                 var i = 0;
-                for (i = 0; i < this.Count(); i++);
-               // node = node.Next;
-                 return i;
-            } else
-            {
-                if (this.Count() == 0)
-                { var x = 0;
-                    for ( x= 0; x < this.Count(); x++) ;
-                    return x; ///not affectting test 
-                }
+                for (i = 0; i < this.Count(); i++) 
+                // node = node.Next;
+                //  return i;
                 {
-                      node = node.Next;
-                 
-                       // return 0;
+                    if (node.Value == value)
+                    {
+                        return i;
+                    }
+                    else if (node.IsLast());
                 }
-                return 1;
-            } 
+                   return 1; //idexOf(bar) 
+            }
+                 if (this.Count() == 0) 
+           
+            node = node.Next;
+            {
+                var x = 0;
+                for (x = 0; x < this.Count(); x++) ;
+                return 0 ; //IndexOf(foo)
+            }
+            //return 1;
+ 
         }
-
      
 
         public bool IsSorted()
