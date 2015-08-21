@@ -204,15 +204,27 @@ namespace SinglyLinkedLists
         
         {
             var node = this.first_node;
-            for (var i = 0; i < this.Count(); i++);
-            if (this.Count() == 0)
-                return 0;
+           
+            if (this.Count() > 0)
             {
-                return 0;
-               /* {
-                    node = node.Next;
-                } */
-            }
+                var i = 0;
+                for (i = 0; i < this.Count(); i++);
+               // node = node.Next;
+                 return i;
+            } else
+            {
+                if (this.Count() == 0)
+                { var x = 0;
+                    for ( x= 0; x < this.Count(); x++) ;
+                    return x; ///not affectting test 
+                }
+                {
+                      node = node.Next;
+                 
+                       // return 0;
+                }
+                return 1;
+            } 
         }
 
      
