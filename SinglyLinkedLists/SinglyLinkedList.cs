@@ -210,31 +210,34 @@ namespace SinglyLinkedLists
 
         {
             var node = this.first_node;
-
-            if (this.Count() > 0)
+            if (this.Count() >= 1)
             {
                 var i = 0;
-                for (i = 0; i < this.Count(); i++) 
-                // node = node.Next;
-                //  return i;
+                for (i = 0; i < this.Count(); i++)
                 {
                     if (node.Value == value)
                     {
-                        return i;
+                        return i; //indexOf(foo??)
                     }
-                    else if (node.IsLast());
+                     if (node.IsLast() && node.Value != value)
+                    {
+                       
+                            return -1; //indexOf(bar&grille) 
+                    }
+                    node = node.Next;
+                   
                 }
-                   return 1; //idexOf(bar) 
+               
             }
                  if (this.Count() == 0) 
            
-            node = node.Next;
-            {
-                var x = 0;
-                for (x = 0; x < this.Count(); x++) ;
-                return 0 ; //IndexOf(foo)
-            }
-            //return 1;
+                node = node.Next;
+                 {
+                    var x = 0;
+                    for (x = 0; x < this.Count(); x++) ;
+                    return x ; //IndexOf(foo) 
+                }
+            
  
         }
      
