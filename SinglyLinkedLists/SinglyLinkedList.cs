@@ -26,7 +26,7 @@ namespace SinglyLinkedLists
             // AddLast(values[i].ToString());
             for (int i = 0; i < values.Length; i++)
             {
-                AddLast(values[i].ToString());
+               AddLast(values[i].ToString());
             }
 
 
@@ -229,9 +229,10 @@ namespace SinglyLinkedLists
                 }
                
             }
-                 if (this.Count() == 0) 
-           
-                node = node.Next;
+            if (this.Count() == 0)
+
+                // node = node.Next;
+                return -1; //changed from line above for test 15
                  {
                     var x = 0;
                     for (x = 0; x < this.Count(); x++) ;
@@ -277,8 +278,14 @@ namespace SinglyLinkedLists
 
         public void Remove(string value)
         {
-            throw new NotImplementedException();
+           // throw new NotImplementedException();
+            var array = new SinglyLinkedList();
+            var list = new SinglyLinkedList<string>(array);
+           
+            list.Remove(first_node); 
         }
+
+        
 
         public void Sort()
         {
@@ -332,7 +339,16 @@ namespace SinglyLinkedLists
             throw new NotImplementedException();
         }
     }
-   
+
+    internal class SinglyLinkedList<T>
+    {
+        private SinglyLinkedList array;
+
+        public SinglyLinkedList(SinglyLinkedList array)
+        {
+            this.array = array;
+        }
+    }
 }
 
 
