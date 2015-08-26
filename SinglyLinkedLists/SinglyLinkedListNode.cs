@@ -43,7 +43,8 @@ namespace SinglyLinkedLists
         {
             // This implementation is provided for your convenience.
             return node1.CompareTo(node2) > 0;
-        }      
+        }
+
 
         public SinglyLinkedListNode(string input)
         {

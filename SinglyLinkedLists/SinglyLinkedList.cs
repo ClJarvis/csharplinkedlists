@@ -278,14 +278,22 @@ namespace SinglyLinkedLists
 
         public void Remove(string value)
         {
-           // throw new NotImplementedException();
-            var array = new SinglyLinkedList();
-            var list = new SinglyLinkedList<string>(array);
-           
-            list.Remove(first_node); 
+            //SinglyLinkedListNode node = first_node;
+            var newNode = new SinglyLinkedListNode(value);
+
+            if (newNode.Value == value)
+            {
+                this.first_node = first_node.Next;
+                return;
+                
+              //  object node = null;
+               
+                first_node.Next = newNode;
+            }
+            throw new ArgumentException();
+
         }
 
-        
 
         public void Sort()
         {
@@ -343,6 +351,10 @@ namespace SinglyLinkedLists
     internal class SinglyLinkedList<T>
     {
         private SinglyLinkedList array;
+
+        public SinglyLinkedList()
+        {
+        }
 
         public SinglyLinkedList(SinglyLinkedList array)
         {
