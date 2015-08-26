@@ -245,7 +245,7 @@ namespace SinglyLinkedLists
 
         public bool IsSorted()
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         // HINT 1: You can extract this functionality (finding the last item in the list) from a method you've already written!
@@ -302,7 +302,7 @@ namespace SinglyLinkedLists
                     break;
 
                 }
-               // node = node.Next;
+                 node = node.Next;
             }
         }
 
