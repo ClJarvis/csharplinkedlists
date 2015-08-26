@@ -278,20 +278,32 @@ namespace SinglyLinkedLists
 
         public void Remove(string value)
         {
-            //SinglyLinkedListNode node = first_node;
+           SinglyLinkedListNode node = first_node;
             var newNode = new SinglyLinkedListNode(value);
 
             if (newNode.Value == value)
             {
                 this.first_node = first_node.Next;
-                return;
                 
-              //  object node = null;
-               
-                first_node.Next = newNode;
+                return;
             }
-            throw new ArgumentException();
+            //  object node = null;
+            while (true)
+            {
+                if (node.Next == null)
+                {
+                    return;
+                }
+                if (newNode.Next.Value == value)
+                {
+                    //return;
+                    newNode.Next = newNode.Next.Next;
+                    //  first_node.Next = newNode;
+                    break;
 
+                }
+                newNode = node.Next;
+            }
         }
 
 
