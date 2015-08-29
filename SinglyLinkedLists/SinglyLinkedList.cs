@@ -241,10 +241,24 @@ namespace SinglyLinkedLists
             
  
         }
-     
+
 
         public bool IsSorted()
         {
+            if (this.Count() != 1 || this.first_node == null)
+            {
+                for (var i = 0; i < this.Count(); i++)
+                {
+                    var tempNode = this.first_node;
+                    if (string.Compare(tempNode.Value, tempNode.Next.Value) > 0)
+                    {
+                        return false;
+                    }
+
+                    tempNode = tempNode.Next;
+                }
+            }
+
             return true;
         }
 
@@ -309,8 +323,24 @@ namespace SinglyLinkedLists
 
         public void Sort()
         {
-            throw new NotImplementedException();
+            if (this.Count() != 1 || this.first_node == first_node.Next)
+            {
+                for (var i = 0; i < this.Count(); i++)
+                {
+                    var tempNode = this.first_node;
+                    if (string.Compare(tempNode.Value, tempNode.Next.Value) > 0)
+                    {
+                        return;
+                    }
+
+                    tempNode = tempNode.Next;
+                }
+            }
+
+            return;
         }
+        
+    
 
         public string[] ToArray()
         {
