@@ -262,6 +262,7 @@ namespace SinglyLinkedLists
             return true;
         }
 
+        
         // HINT 1: You can extract this functionality (finding the last item in the list) from a method you've already written!
         // HINT 2: I suggest writing a private helper method LastNode()
         // HINT 3: If you highlight code and right click, you can use the refactor menu to extract a method for you...
@@ -323,24 +324,34 @@ namespace SinglyLinkedLists
 
         public void Sort()
         {
-            if (this.Count() != 1 || this.first_node == first_node.Next)
+            if (this.Count() < 2)
             {
-                for (var i = 0; i < this.Count(); i++)
-                {
-                    var tempNode = this.first_node;
-                    if (string.Compare(tempNode.Value, tempNode.Next.Value) > 0)
-                    {
-                        return;
-                    }
-
-                    tempNode = tempNode.Next;
-                }
+                return;
             }
+            else
+            {
+                while (!this.IsSorted())
+                {
+                    var node = first_node;
+                    var node2 = node.Next;
+                    for (var i = 1; i < this.Count(); i++)
+                    {
+                        if (node.Value.CompareTo(node.Next.Value) > 0)
+                        {
+                            var temp = node.Next.Value;
+                            node2.Value = node.Value;
+                            node.Value = temp;
+                        }
+                        node = node.Next;
+                        node2 = node2.Next;
+                    }
+                }
 
-            return;
+            }
         }
-        
-    
+
+      
+
 
         public string[] ToArray()
         {
@@ -482,6 +493,26 @@ public override string ToString()
 
          }
 
+    ///////backup for Sort 
+     public void Sort()
+        {
+            if (this.Count() != 1 || this.first_node == first_node.Next)
+            {
+                for (var i = 0; i < this.Count(); i++)
+                {
+                    var tempNode = this.first_node;
+                    var tempNode2 = tempNode.Next;
+                    if (string.Compare(tempNode.Value, tempNode.Next.Value) > 0)
+                    {
+                        return;
+                    }
+
+                    tempNode = tempNode.Next;
+                    tempNode2 = tempNode2.Next;
+                }
+            }
+            return;
+        }
 
 
          */

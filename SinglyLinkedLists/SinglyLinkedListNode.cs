@@ -31,6 +31,7 @@ namespace SinglyLinkedLists
         public string Value
         {
             get { return value; }
+            set { this.value = value; }
         }
 
         public static bool operator <(SinglyLinkedListNode node1, SinglyLinkedListNode node2)
@@ -45,6 +46,10 @@ namespace SinglyLinkedLists
             return node1.CompareTo(node2) > 0;
         }
 
+        public static implicit operator SinglyLinkedListNode(string v)
+        {
+            throw new NotImplementedException();
+        }
 
         public SinglyLinkedListNode(string input)
         {
@@ -62,7 +67,7 @@ namespace SinglyLinkedLists
         {
             SinglyLinkedListNode other_node = obj as SinglyLinkedListNode;
            // return other.node == null ? 1 : this.value.CompareTo(other_node.Value); 
-          if (other_node == null)           //this > null  (this.value == other_node.Value)
+          if (other_node == null)   //this > null  (this.value == other_node.Value)
             {
                 return 1;
             } else {
