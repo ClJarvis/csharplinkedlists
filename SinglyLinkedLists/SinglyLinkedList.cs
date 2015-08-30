@@ -206,6 +206,7 @@ namespace SinglyLinkedLists
             // return this.first_node ? null : this.first_node.Value;
         }
 
+        ///refactor this code ///////////////////////////////////////////////////////
         public int IndexOf(string value)
 
         {
@@ -245,24 +246,19 @@ namespace SinglyLinkedLists
 
         public bool IsSorted()
         {
-            if (this.Count() != 1 || this.first_node == null)
+            if (this.First() != null)
             {
-                for (var i = 0; i < this.Count(); i++)
+                for (var i = 0; i < this.Count() - 1; i++)
                 {
-                    var tempNode = this.first_node;
-                    if (string.Compare(tempNode.Value, tempNode.Next.Value) > 0)
+                    if (String.Compare(this.ElementAt(i), this.ElementAt(i + 1), StringComparison.CurrentCulture) == 1)
                     {
                         return false;
                     }
-
-                    tempNode = tempNode.Next;
                 }
             }
-
             return true;
         }
 
-        
         // HINT 1: You can extract this functionality (finding the last item in the list) from a method you've already written!
         // HINT 2: I suggest writing a private helper method LastNode()
         // HINT 3: If you highlight code and right click, you can use the refactor menu to extract a method for you...
@@ -492,6 +488,23 @@ public override string ToString()
              return strBuilder.ToString();
 
          }
+
+    ////backup for IsSorted
+     if (this.Count() != 1 || this.first_node == null)
+            {
+                for (var i = 0; i < this.Count(); i++)
+                {
+                    var tempNode = this.first_node;
+                    if (string.Compare(tempNode.Value, tempNode.Next.Value) > 0)
+                    {
+                        return false;
+                    }
+
+                    tempNode = tempNode.Next;
+                }
+            }
+
+            return true;
 
     ///////backup for Sort 
      public void Sort()
